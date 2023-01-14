@@ -1,0 +1,15 @@
+.main{
+    display: flex;
+    gap: 100px;
+    width: 90%;
+    margin: auto;
+    padding: 10px 50px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+@media screen and (max-width:700px) {
+    .sidebar{
+        display: none;
+    }
+}
