@@ -1,0 +1,52 @@
+.main{
+    padding:4px 100px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background: rgb(218, 215, 215);
+}
+.box{
+    display:flex;
+    gap:30px;
+    justify-content: center;
+    align-items: center;
+}
+.box div{
+    width: 50px;
+    padding: 8px;
+    background: rgb(163, 160, 160);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.box >div>img{
+    width: 70%;
+}
+.qty{
+    position: absolute;
+    bottom: 8px;
+    right: 5px;
+}
+.toHide{
+    border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 900px){
+    .main{
+        width: 100%;
+        padding: 4px 40px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .main{
+        width: 100%;
+        padding: 4px 40px;
+    }
+    .toHide{
+        display: none;
+    }
+}

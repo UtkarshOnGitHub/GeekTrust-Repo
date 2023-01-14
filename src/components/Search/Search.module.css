@@ -1,0 +1,33 @@
+.main{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.main input{
+    width: 20%;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 10px 3px;
+}
+.btn{
+    background: rgb(218, 215, 215);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    width: 50px;
+    height: 45px;
+}
+.btn img{
+    width: 50%;
+    height: 50%;
+}
+
+@media screen and (max-width: 800px){
+    .main input{
+        width: 50%;
+    }
+}

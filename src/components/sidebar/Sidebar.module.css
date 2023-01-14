@@ -1,0 +1,36 @@
+.main{
+    width: 20%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px 0px;
+    /* height: 60vh; */
+    border-radius: 8px;
+}
+
+label{
+    text-align: left;
+    margin-left: 15px;
+}
+
+.box>div:first-child{
+    text-align: left;
+    margin-left: 25px;
+} 
+.box>div:first-child>h3{
+    font-size:17px;
+}
+.inputType{
+    margin-top: -10px;
+    
+}
+.inputType>div{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    margin-bottom: 6px;
+}
+
+@media screen and (max-width:700px) {
+    .main{
+        display: none;
+    }
+}
