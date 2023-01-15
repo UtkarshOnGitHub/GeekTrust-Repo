@@ -6,7 +6,6 @@ import styles from "./Cart.module.css"
 const Cart = () => {
 
   const {cart} = useContext(AppContext)
-  const [total ,setTotal] = useState(0)
   const [render ,setRender] = useState(false)
 
   const AddAmount = ()=>{
