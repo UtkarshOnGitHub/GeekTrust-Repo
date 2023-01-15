@@ -31,7 +31,8 @@
     right: 5px;
 }
 .toHide{
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
+    color: black;
 }
 
 @media screen and (max-width: 900px){
