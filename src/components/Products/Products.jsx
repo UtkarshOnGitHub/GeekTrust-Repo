@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react'
 import ProductDisplay from '../ProductDisplay/ProductDisplay'
 import styles from "./Products.module.css"
-const Products = ({products,changeQty,state}) => {
-  useEffect(()=>{
-      // console.log(products)
-  },[state])
+const Products = ({products,changeQty,orignal}) => {
+
   return (
     <div className={styles.main}>
         {products?.map((e)=>{
+          let orignal = e.quantity
           return(
-            <ProductDisplay data={e} changeQty={changeQty} state={state}/>
+            <ProductDisplay key={e.id} data={e} changeQty={changeQty} orignal={orignal} />
           )
         })}
     </div>
