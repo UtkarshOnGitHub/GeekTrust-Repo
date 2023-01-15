@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { AppContext } from '../../Context/ContextProvider'
 import styles from "./Cart-card.module.css"
-const CartCard = ({cartItems,AddAmount}) => {
+const CartCard = ({cartItems,renderFn}) => {
   const {cart,setCart} = useContext(AppContext)
   const [value , setValue] = useState(1)
 
@@ -19,6 +19,7 @@ const CartCard = ({cartItems,AddAmount}) => {
         if(id==cart[i].id){
             cart[i].quantity = cart[i].quantity + val
             cartQuantity(id)
+            renderFn()
           }
       }
   }
@@ -44,7 +45,7 @@ const CartCard = ({cartItems,AddAmount}) => {
         <div style={{display:"flex" ,gap:"6px"}}>
               <button disabled={cartItems.quantity==1} onClick={()=>(handleChangeQty(cartItems.id,-1))}>-</button>
               <button>{cartItems.quantity}</button>
-              <button onClick={()=>(handleChangeQty(cartItems.id,1))}>+</button>
+              <button disabled={cartItems.quantity==3} onClick={()=>(handleChangeQty(cartItems.id,1))}>+</button>
             </div>
         <button onClick={()=>(handleDelete(cartItems.id))}>Delete</button>
     </div>

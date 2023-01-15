@@ -33,6 +33,7 @@ const Home = () => {
     const filterFunction = (value)=>{
         if(value=="all"){
             setColorState(null)
+            settypeState(null)
         }
         if(value[1]=="color"){
             setColorState(value[0])

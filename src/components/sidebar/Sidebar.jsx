@@ -20,6 +20,8 @@ const Sidebar = ({filterFunction}) => {
 
 
 
+
+
   const handleColorChange =(value)=>{
       if(value=="Red"){
         if(red==true){
@@ -92,6 +94,7 @@ const Sidebar = ({filterFunction}) => {
     if(value=="Polo"){
       if(polo==true){
         setPolo(false)
+        filterFunction("all")
       }else{
         filterFunction([value,"type"])
         setBasic(false)
@@ -101,6 +104,7 @@ const Sidebar = ({filterFunction}) => {
     }else if(value=="Hoodie"){
       if(hoodie==true){
         setHoodie(false)
+        filterFunction("all")
       }else{
         filterFunction([value,"type"])
         setBasic(false)
@@ -110,6 +114,7 @@ const Sidebar = ({filterFunction}) => {
     }else{
       if(basic==true){
         setBasic(false)
+        filterFunction("all")
       }else{
         filterFunction([value,"type"])
         setHoodie(false)

@@ -7,18 +7,24 @@ const Cart = () => {
 
   const {cart} = useContext(AppContext)
   const [total ,setTotal] = useState(0)
+  const [render ,setRender] = useState(false)
 
   const AddAmount = ()=>{
     let sum = 0;
-    for(let i=0;i<cart.length;i++){
+    for(let i=0;i<cart?.length;i++){
       sum += cart[i].quantity * cart[i].price
     }
     return sum
   }
 
+  function renderFn(){
+    setRender(!render)
+  }
+
   useEffect(()=>{
-    AddAmount()
-  },[cart])
+
+  },[render])
+  console.log(AddAmount())
 
   return (
     <div className={styles.main}>
@@ -26,7 +32,7 @@ const Cart = () => {
         <div className={styles.cartCard}>
             {cart?.map((e)=>{
               return(
-                <CartCard key={e.id} cartItems = {e} />
+                <CartCard key={e.id} cartItems = {e} renderFn={renderFn}/>
               )
             })}
             <div className={styles.hr}>
