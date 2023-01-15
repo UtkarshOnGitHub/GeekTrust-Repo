@@ -20,6 +20,7 @@ const Home = () => {
     const [genderState , setGenderState] = useState(null)
     const [priceState , setPriceState] = useState(null)
     const [typeState ,settypeState] = useState(null)
+    const [searchState ,setSearchState] = useState(null)
     useEffect(()=>{
         getData().then((res)=>{
             setData(res)
@@ -27,14 +28,6 @@ const Home = () => {
         })
     },[])
 
-    const changeQty =(id)=>{
-        // for(let i=0;i<data.length;i++){
-        //     if(data[i].id==id){
-        //         data[i].quantity = data[i].quantity-1
-        //     }
-        // }
-        setState(!state)
-    }
 
 
     const filterFunction = (value)=>{
@@ -49,6 +42,8 @@ const Home = () => {
             setPriceState(value[0])
         }else if(value[1]=="type"){
             settypeState(value[0])
+        }else if(value[1]=="search"){
+            setSearchState(value[0])
         }
     }
 
@@ -56,7 +51,7 @@ const Home = () => {
     console.log(priceState)
     useEffect(()=>{
         ApplyFilter()
-    },[colorState,genderState,priceState,typeState])
+    },[colorState,genderState,priceState,typeState,searchState])
 
 
 // Filter Handling Logic
@@ -85,7 +80,11 @@ const Home = () => {
                 return e.type==typeState
             })
         }
-
+        if(searchState){
+            newList = newList?.filter((e)=>{
+                return e.name==searchState
+            })   
+        }
 
 
         setData(newList)
@@ -95,10 +94,10 @@ const Home = () => {
 
   return (
     <>
-    <Search/>
+    <Search filterFunction = {filterFunction}/>
     <div className={styles.main}>
         <Sidebar filterFunction = {filterFunction}/>
-        {data.length==0 ? <div style={{width:"70%"}}><h1>No Product Found</h1></div> :<Products products={data} changeQty={changeQty} orignal={orignal}/>}
+        {data.length==0 ? <div style={{width:"70%"}}><h1>No Product Found</h1></div> :<Products products={data}  orignal={orignal}/>}
     </div>
     </>
   )

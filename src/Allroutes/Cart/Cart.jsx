@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import CartCard from '../../components/CartCard/CartCard'
 import { AppContext } from '../../Context/ContextProvider'
 import styles from "./Cart.module.css"
@@ -6,6 +6,19 @@ import styles from "./Cart.module.css"
 const Cart = () => {
 
   const {cart} = useContext(AppContext)
+  const [total ,setTotal] = useState(0)
+
+  const AddAmount = ()=>{
+    let sum = 0;
+    for(let i=0;i<cart.length;i++){
+      sum += cart[i].quantity * cart[i].price
+    }
+    setTotal(sum)
+  }
+
+  useEffect(()=>{
+    AddAmount()
+  },[])
 
   return (
     <div className={styles.main}>
@@ -13,11 +26,11 @@ const Cart = () => {
         <div className={styles.cartCard}>
             {cart?.map((e)=>{
               return(
-                <CartCard key={e.id} cartItems = {e}/>
+                <CartCard key={e.id} cartItems = {e} />
               )
             })}
             <div className={styles.hr}>
-              <h4>Total Amount:400</h4>
+              <h4>Total Amount:{total}</h4>
             </div>
         </div>
     </div>
