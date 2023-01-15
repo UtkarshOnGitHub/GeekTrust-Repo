@@ -22,7 +22,7 @@ const CartCard = ({cartItems,AddAmount}) => {
           }
       }
   }
-
+  console.log(cart)
 
   const handleDelete =(id)=>{
     let newFiltered = cart?.filter((e)=>{

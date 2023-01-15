@@ -13,12 +13,12 @@ const Cart = () => {
     for(let i=0;i<cart.length;i++){
       sum += cart[i].quantity * cart[i].price
     }
-    setTotal(sum)
+    return sum
   }
 
   useEffect(()=>{
     AddAmount()
-  },[])
+  },[cart])
 
   return (
     <div className={styles.main}>
@@ -30,7 +30,7 @@ const Cart = () => {
               )
             })}
             <div className={styles.hr}>
-              <h4>Total Amount:{total}</h4>
+              <h4>Total Amount:{AddAmount()}</h4>
             </div>
         </div>
     </div>
